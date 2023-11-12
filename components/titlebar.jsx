@@ -4,6 +4,7 @@ import { showModal } from "./modals.jsx";
 import { ModalButton } from "./modalButton.jsx";
 import { fallbackColorways } from "../constants.js";
 import { SelectorModalBody } from "./selectorModal.jsx";
+
 export const Titlebar = () => {
     return <div class="AppHeader AppHeader-titlebar">
         <div id="AppHeader-colors-button">
