@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack && electron main",
     "build:win": "webpack && electron-builder --win",
-    "bundle": "webpack"
+    "build": "webpack"
   },
   "babel": {
     "plugins": [
