@@ -9,19 +9,26 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
+        node-version: [19.x]
 
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v1
 
-      - name: Install Node.js, NPM and Yarn
-        uses: dafnik/setup-node-pnpm@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          node: 19
+            node-version: ${{ matrix.node-version }}
+
+      - name: Build
+        run: |
+         npm install
+         npx webpack
 
       - name: Build/release Electron app
-        uses: wixplosives/action-electron-builder@v1
+        uses: paneron/action-electron-builder@v1.8.1
         with:
+          skip_build: true
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
           github_token: ${{ secrets.github_token }}
