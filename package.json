@@ -1,0 +1,64 @@
+{
+  "name": "gh-desktop",
+  "version": "1.0.0",
+  "description": "A desktop client to access GitHub's website",
+  "main": "main.js",
+  "scripts": {
+    "start": "webpack && electron main",
+    "build:win": "webpack && electron-builder --win",
+    "bundle": "webpack"
+  },
+  "babel": {
+    "plugins": [
+      [
+        "@babel/plugin-transform-react-jsx",
+        {
+          "runtime": "classic"
+        }
+      ]
+    ]
+  },
+  "build": {
+    "productName": "GitHub",
+    "appId": "com.github.desktop",
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "msi",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "directories": {
+      "output": "./dist/${name}/${os}"
+    }
+  },
+  "author": "DaBluLite",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/helper-module-imports": "^7.22.15",
+    "@babel/plugin-transform-react-jsx": "^7.22.15",
+    "@electron/remote": "^2.1.0",
+    "@types/node": "^20.9.0",
+    "babel-loader": "^9.1.3",
+    "electron": "^27.0.4",
+    "electron-builder": "^24.6.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "electron-builder-squirrel-windows": "^24.8.1",
+    "jsx-dom": "^8.0.7",
+    "jsx-dom-cjs": "^8.0.7"
+  }
+}
