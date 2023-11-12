@@ -15,9 +15,9 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
+        uses: dafnik/setup-node-pnpm@v1
         with:
-          node-version: 10
+          node: 19
 
       - name: Build/release Electron app
         uses: wixplosives/action-electron-builder@v1
