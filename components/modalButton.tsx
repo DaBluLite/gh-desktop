@@ -1,5 +1,4 @@
-import React from "jsx-dom";
-export const ModalButton = ({ children, onclick }) => {
+export const ModalButton = ({ children, onclick }: any) => {
     return <div class="full-button width-full">
         <button class="js-repo-delete-proceed-button Button--secondary Button--medium Button Button--fullWidth" onClick={onclick}>
             <span class="Button-content">

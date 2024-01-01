@@ -1,5 +1,4 @@
-import React from "jsx-dom";
-export const showModal =  (header, body, footer) => {
+export const showModal =  (header: any, body: any, footer: any) => {
     const modalOverlay = <div class="Overlay-backdrop--center" onClick={(e) => {
         e.currentTarget.remove();
     }}>

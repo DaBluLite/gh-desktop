@@ -1,11 +1,10 @@
-import React from "jsx-dom";
-import { ColorwayCSS } from "../utils.js";
-import { generateCSS } from "./css.jsx";
-export const SelectorModalBody = ({ colorways }) => {
+import { ColorwayCSS } from "../utils";
+import { generateCSS } from "./css";
+export const SelectorModalBody = ({ colorways }: { colorways: any[] }) => {
     async function useEffect() {
         const colorway = await ColorwayCSS.get();
         if(colorway.name) {
-            document.getElementById("ColorSelectorModal-body--" + colorway.name).classList.add("ColorSelectorModal-color--active");
+            document.getElementById("ColorSelectorModal-body--" + colorway.name)!.classList.add("ColorSelectorModal-color--active");
         }
     }
     useEffect();
@@ -35,18 +34,16 @@ export const SelectorModalBody = ({ colorways }) => {
                                 if (colorway.name === color.name) {
                                     ColorwayCSS.remove();
                                 } else {
-                                    document.getElementById("ColorSelectorModal-body--" + color.name).classList.add("ColorSelectorModal-color--active");
+                                    document.getElementById("ColorSelectorModal-body--" + color.name)!.classList.add("ColorSelectorModal-color--active");
                                     ColorwayCSS.set(color.name,generateCSS(color.primary,color.secondary,color.tertiary,color.accent));
                                 }
                             }}
                         >
-                            {colors.map((colorItm) => {
+                            {colors.map((colorItm: string | number) => {
                                 return (
                                     <div
                                         className="ColorSelectorModal-previewColor"
-                                        style={{
-                                            backgroundColor: color[colorItm],
-                                        }}
+                                        style={{backgroundColor: color[colorItm]}}
                                     />
                                 );
                             })}
