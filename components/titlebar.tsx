@@ -8,7 +8,7 @@ export const Titlebar = () => {
     return <div class="AppHeader-globalBar-end AppHeader-titlebar">
         <div id="AppHeader-colors-button">
             <a class="Button Button--iconOnly Button--secondary Button--medium AppHeader-button color-fg-muted" onClick={async () => {
-                const colorwaysData = await fetch("https://raw.githubusercontent.com/DaBluLite/DiscordColorways/master/index.json");
+                const colorwaysData = await fetch("https://raw.githubusercontent.com/DaBluLite/ProjectColorway/master/index.json");
                 const colorways = await colorwaysData.json().catch(() => {return { colorways: [] }});
                 const colors = colorways.colorways || fallbackColorways;
                 showModal("Colors (Powered By DiscordColorways)", <SelectorModalBody colorways={colors}/>, null)
